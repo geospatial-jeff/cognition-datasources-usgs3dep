@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/geospatial-jeff/cognition-datasources-usgs3dep.svg?style=svg)](https://circleci.com/gh/geospatial-jeff/cognition-datasources-usgs3dep)
+
 ## USGS3DEP
 
 | Parameter | Status |
