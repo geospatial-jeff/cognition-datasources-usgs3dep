@@ -6,7 +6,6 @@ import boto3
 
 
 from datasources.stac.query import STACQuery
-from datasources.stac.item import STACItem
 from datasources.sources.base import Datasource
 
 client = boto3.client('s3')
@@ -16,20 +15,6 @@ class USGS3DEP(Datasource):
 
     stac_compliant = False
     tags = ['Elevation', 'Raster']
-
-    # @staticmethod
-    # def query_3dep_reference(bbox):
-    #     idx = index.Rtree(rtree_location)
-    #     return [x.object for x in idx.intersection(bbox, objects=True)]
-    #
-    # @staticmethod
-    # def check_properties(asset, properties):
-    #     for item in properties:
-    #         equality = next(iter(properties[item]))
-    #         comparison_operator = getattr(operator, equality)
-    #         if not comparison_operator(asset[item], properties[item][equality]):
-    #             return False
-    #     return True
 
     def __init__(self, manifest):
         super().__init__(manifest)
@@ -85,9 +70,6 @@ class USGS3DEP(Datasource):
                 }
             },
         }
-
-
-        # print(stac_item['bbox'])
 
         if "properties" in list(query):
             if query['properties'].check_properties(stac_item['properties']):
