@@ -1,0 +1,7 @@
+db_name: 'usgs-3dep-coverages'
+config:
+  min_res: 7
+  max_res: 11
+  limit: 500
+  unique_id: 'id'
+  compress: true

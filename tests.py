@@ -40,16 +40,3 @@ class USGS3DEPTestCases(tests.BaseTestCases):
         self.temporal = ("2007-01-01", "2007-12-31")
         self.properties = {'pc:encoding': {'eq': 'laszip'}}
         self.limit = 10
-
-    def test_spatial_search(self):
-        # Overwriting default spatial test cases because outputs are multipart polygons
-        # Default spatial test case only handles singlepart polygons
-        self.manifest.flush()
-        self.manifest['USGS3DEP'].search(self.spatial)
-        response = self.manifest.execute()
-        self.assertEqual(list(response), ['USGS3DEP'])
-
-        # Confirming that each output feature intersects the input
-        for feat in response['USGS3DEP']['features']:
-            mp = MultiPolygon([Polygon(x[0]) for x in feat['geometry']['coordinates']])
-            self.assertTrue(mp.intersects(self.spatial_geom))
