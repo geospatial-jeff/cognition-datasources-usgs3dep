@@ -1,3 +1,3 @@
 circle-token: 9b7ffcdcd20122fdc6a0f453cb91713405f61e5e
-layer-arn: arn:aws:lambda:us-east-1:725820063953:layer:usgs-3dep-driver
+layer-arn: arn:aws:lambda:us-east-1:725820063953:layer:usgs-3dep-driver:1
 db-arn: arn:aws:lambda:us-east-1:725820063953:layer:usgs-3dep-coverages:1
